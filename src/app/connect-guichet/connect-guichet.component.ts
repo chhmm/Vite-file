@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import {authGuichetModel} from './auth-guichet.model';
 
 @Component({
   selector: 'app-connect-guichet',
@@ -6,5 +7,11 @@ import { Component } from '@angular/core';
   styleUrls: ['./connect-guichet.component.css']
 })
 export class ConnectGuichetComponent {
+
+  auth = new authGuichetModel();
+
+  onClickSubmit(){
+    console.log(this.auth)
+  }
 
 }

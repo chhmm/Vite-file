@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { FormBuilder, FormGroup } from '@angular/forms';
+import { accountModel } from './account.model';
 
 @Component({
   selector: 'app-new-account',
@@ -6,5 +8,11 @@ import { Component } from '@angular/core';
   styleUrls: ['./new-account.component.css']
 })
 export class NewAccountComponent {
+  
+  compte = new accountModel();
+
+  onClickSubmit(){
+    console.log(this.compte)
+  }
 
 }

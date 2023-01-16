@@ -10,6 +10,12 @@ import { AjouterFileComponent } from './ajouter-file/ajouter-file.component';
 import { ModifierFileComponent } from './modifier-file/modifier-file.component';
 import { InterfaceAdminComponent } from './interface-admin/interface-admin.component';
 import { InterfaceGuichetComponent } from './interface-guichet/interface-guichet.component';
+import { RouterModule } from '@angular/router';
+import { AppRoutingModule } from './app-routing/app-routing.module';
+import { NavbarComponent } from './navbar/navbar.component';
+import { FormsModule } from '@angular/forms';
+
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -21,10 +27,15 @@ import { InterfaceGuichetComponent } from './interface-guichet/interface-guichet
     AjouterFileComponent,
     ModifierFileComponent,
     InterfaceAdminComponent,
-    InterfaceGuichetComponent
+    InterfaceGuichetComponent,
+    NavbarComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    RouterModule,
+    AppRoutingModule,
+    FormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

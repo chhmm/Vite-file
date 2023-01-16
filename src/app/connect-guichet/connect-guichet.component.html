@@ -24,68 +24,29 @@
     <meta property="og:type" content="website">
   </head>
   <body class="u-body u-xl-mode" data-lang="fr"><header class="u-clearfix u-header u-white u-header" id="sec-d475"><div class="u-clearfix u-sheet u-sheet-1">
-        <a href="https://nicepage.com" class="u-image u-logo u-image-1">
-          <img src="/assets/images/default-logo.png" class="u-logo-image u-logo-image-1">
-        </a>
-        <div class="u-palette-1-light-2 u-radius-20 u-shape u-shape-round u-shape-1"></div>
-        <nav class="u-menu u-menu-dropdown u-offcanvas u-menu-1">
-          <div class="menu-collapse" style="font-size: 1rem; letter-spacing: 0px;">
-            <a class="u-button-style u-custom-color u-custom-left-right-menu-spacing u-custom-padding-bottom u-custom-text-hover-color u-custom-text-shadow u-custom-top-bottom-menu-spacing u-nav-link u-text-active-palette-1-base u-text-hover-palette-2-base" href="#">
-              <svg class="u-svg-link" viewBox="0 0 24 24"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#menu-hamburger"></use></svg>
-              <svg class="u-svg-content" version="1.1" id="menu-hamburger" viewBox="0 0 16 16" x="0px" y="0px" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg"><g><rect y="1" width="16" height="2"></rect><rect y="7" width="16" height="2"></rect><rect y="13" width="16" height="2"></rect>
-</g></svg>
-            </a>
-          </div>
-          <div class="u-custom-menu u-nav-container">
-            <ul class="u-nav u-unstyled u-nav-1"><li class="u-nav-item"><a class="u-button-style u-nav-link u-text-active-palette-1-base u-text-hover-palette-4-base" href="Accueil.html" style="padding: 10px 20px;">Accueil</a>
-</li><li class="u-nav-item"><a class="u-button-style u-nav-link u-text-active-palette-1-base u-text-hover-palette-4-base" href="Accueil.html#carousel_ee00" style="padding: 10px 20px;">À propos de</a>
-</li><li class="u-nav-item"><a class="u-button-style u-nav-link u-text-active-palette-1-base u-text-hover-palette-4-base" href="#" style="padding: 10px 20px;">se connecter</a><div class="u-nav-popup"><ul class="u-h-spacing-20 u-nav u-unstyled u-v-spacing-10"><li class="u-nav-item"><a class="u-button-style u-nav-link u-white" href="se-connecter-guichet.html">en tant que guichet</a>
-</li><li class="u-nav-item"><a class="u-button-style u-nav-link u-white" href="se-connecter-admin.html">en tant qu'administrateur</a>
-</li></ul>
-</div>
-</li><li class="u-nav-item"><a class="u-button-style u-nav-link u-text-active-palette-1-base u-text-hover-palette-4-base" href="créer-un-compte.html" style="padding: 10px 20px;">créer un compte</a>
-</li></ul>
-          </div>
-          <div class="u-custom-menu u-nav-container-collapse">
-            <div class="u-black u-container-style u-inner-container-layout u-opacity u-opacity-95 u-sidenav">
-              <div class="u-inner-container-layout u-sidenav-overflow">
-                <div class="u-menu-close"></div>
-                <ul class="u-align-center u-nav u-popupmenu-items u-unstyled u-nav-3"><li class="u-nav-item"><a class="u-button-style u-nav-link" href="Accueil.html">Accueil</a>
-</li><li class="u-nav-item"><a class="u-button-style u-nav-link" href="Accueil.html#carousel_ee00">À propos de</a>
-</li><li class="u-nav-item"><a class="u-button-style u-nav-link" href="#">se connecter</a><div class="u-nav-popup"><ul class="u-h-spacing-20 u-nav u-unstyled u-v-spacing-10"><li class="u-nav-item"><a class="u-button-style u-nav-link" href="se-connecter-guichet.html">en tant que guichet</a>
-</li><li class="u-nav-item"><a class="u-button-style u-nav-link" href="se-connecter-admin.html">en tant qu'administrateur</a>
-</li></ul>
-</div>
-</li><li class="u-nav-item"><a class="u-button-style u-nav-link" href="créer-un-compte.html">créer un compte</a>
-</li></ul>
-              </div>
-            </div>
-            <div class="u-black u-menu-overlay u-opacity u-opacity-70"></div>
-          </div>
-        </nav>
+    <app-navbar></app-navbar>
       </div></header>
     <section class="u-clearfix u-image u-shading u-section-1" id="sec-2b96" data-image-width="2000" data-image-height="2000">
       <div class="u-clearfix u-sheet u-sheet-1">
         <h2 class="u-text u-text-default u-text-1">guichet</h2>
         <div class="u-form u-form-1">
-          <form action="https://forms.nicepagesrv.com/v2/form/process" class="u-clearfix u-form-horizontal u-form-spacing-15 u-inner-form" style="padding: 15px;" source="email">
+          <form  class="u-clearfix u-form-horizontal u-form-spacing-15 u-inner-form" style="padding: 15px;" source="email">
             <div class="u-form-group u-form-name u-label-top">
               <label for="name-ef64" class="u-label">identifiant du local</label>
-              <input type="text" placeholder="id du local" id="name-ef64" name="name" class="u-border-3 u-border-palette-4-base u-input u-input-rectangle u-white" required="">
+              <input type="text" placeholder="id du local" id="name-ef64" [(ngModel)]="auth.idLocal" name="id" class="u-border-3 u-border-palette-4-base u-input u-input-rectangle u-white" required="">
             </div>
             <div class="u-form-email u-form-group u-label-top">
               <label for="email-ef64" class="u-label">mot de passe du local</label>
-              <input type="email" placeholder="mot de passe" id="email-ef64" name="email" class="u-border-3 u-border-palette-4-base u-input u-input-rectangle u-white" required="">
+              <input type="email" placeholder="mot de passe" id="email-ef64" [(ngModel)]="auth.mdpLocal" name="mdp" class="u-border-3 u-border-palette-4-base u-input u-input-rectangle u-white" required="">
             </div>
             <div class="u-form-group u-form-number u-form-number-layout-number u-label-top u-form-group-3">
               <label for="number-c0c1" class="u-label">numéro du guichet</label>
               <div class="u-input-row" data-value="0">
-                <input value="0" min="0" max="100" step="1" type="number" placeholder="" id="number-c0c1" name="number" class="u-border-3 u-border-palette-4-base u-input u-input-rectangle u-white">
+                <input value="0" min="0" max="100" step="1" type="number" placeholder="" id="number-c0c1" [(ngModel)]="auth.numGuichet" name="number" class="u-border-3 u-border-palette-4-base u-input u-input-rectangle u-white">
               </div>
             </div>
             <div class="u-form-group u-form-submit u-label-top">
-              <a href="#" class="u-btn u-btn-submit u-button-style u-hover-palette-1-dark-1 u-palette-1-base u-btn-1">Submit</a>
-              <input type="submit" value="submit" class="u-form-control-hidden">
+              <button type="button" class="btn btn-primary" (click)="onClickSubmit()">Soumettre</button>
             </div>
             <div class="u-form-send-message u-form-send-success">#FormSendSuccess</div>
             <div class="u-form-send-error u-form-send-message">#FormSendError</div>
