@@ -3,7 +3,7 @@ import { IsEmail, IsNumber, IsOptional, IsString, MaxLength, MinLength, Validati
 export class UpdateCompteDto {
   @IsString()
   @IsOptional()
-  @MinLength(3,{
+  @MinLength(5,{
     message: (validationData: ValidationArguments) => {
       return `The size of your ${validationData.property} ${validationData.value} is short, the minimum size of ${validationData.property} is ${validationData.constraints[0]}`
     }
@@ -13,21 +13,7 @@ export class UpdateCompteDto {
       return `The size of your ${validationData.property} ${validationData.value} is long, the maximum size of ${validationData.property} is ${validationData.constraints[0]}`
     }
     })
-  firstname: string;
-
-  @IsString()
-  @IsOptional()
-  @MinLength(3,{
-    message: (validationData: ValidationArguments) => {
-      return `The size of your ${validationData.property} ${validationData.value} is short, the minimum size of ${validationData.property} is ${validationData.constraints[0]}`
-    }
-    })
-  @MaxLength(20, { 
-    message: (validationData: ValidationArguments) => {
-      return `The size of your ${validationData.property} ${validationData.value} is long, the maximum size of ${validationData.property} is ${validationData.constraints[0]}`
-    }
-    })
-  lastname: string;
+  name: string;
 
   @IsString()
   @IsOptional()
@@ -48,4 +34,18 @@ export class UpdateCompteDto {
   @IsString()
   @IsOptional()
   taxIdentificationNumber: string; 
+
+  @IsString()
+  @IsOptional()
+  @MinLength(8,{
+    message: (validationData: ValidationArguments) => {
+      return `The size of your ${validationData.property} ${validationData.value} is short, the minimum size of ${validationData.property} is ${validationData.constraints[0]}`
+    }
+    })
+  @MaxLength(20, { 
+    message: (validationData: ValidationArguments) => {
+      return `The size of your ${validationData.property} ${validationData.value} is long, the maximum size of ${validationData.property} is ${validationData.constraints[0]}`
+    }
+    })
+  password: string;
 }

@@ -7,10 +7,7 @@ export class CompteEntity extends TimestampEntity {
   id: string;
 
   @Column()
-  firstname: string;
-
-  @Column()
-  lastname: string;
+  name: string;
 
   @Column()
   cin: string;
@@ -27,6 +24,9 @@ export class CompteEntity extends TimestampEntity {
   @Column()
   taxIdentificationNumber: string;
 
+  @Column()
+  password: string;
+  
   @DeleteDateColumn()
   del : any;
 }

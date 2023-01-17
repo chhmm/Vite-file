@@ -12,9 +12,9 @@ export class CompteController {
     return this.compteService.addCompte(addCompteDto);
   }
 
-  @Get(':id')
-  getCompte(@Param('id') id: string) {
-    return this.compteService.getCompte(id);
+  @Get(':email/:password')
+  getCompte(@Param('email') email: string, @Param('password') password: string) {
+    return this.compteService.getCompte(email,password);
   }
 
   @Get()
@@ -32,7 +32,7 @@ export class CompteController {
     return this.compteService.deleteCompte(id);
   }
 
-  @Get('/restore/:id')
+  @Get(':id')
     restoreCompte(@Param('id') id:string) {
       return this.compteService.restoreCompte(id);
     } 

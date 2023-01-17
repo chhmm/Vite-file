@@ -4,8 +4,8 @@ export class AddCompteDto {
   id: string;
 
   @IsString()
-  @IsNotEmpty({message: ()=>("'Firstname' field is empty!")})
-  @MinLength(3,{
+  @IsNotEmpty({message: ()=>("'Name' field is empty!")})
+  @MinLength(5,{
     message: (validationData: ValidationArguments) => {
       return `The size of your ${validationData.property} ${validationData.value} is short, the minimum size of ${validationData.property} is ${validationData.constraints[0]}`
     }
@@ -15,21 +15,7 @@ export class AddCompteDto {
       return `The size of your ${validationData.property} ${validationData.value} is long, the maximum size of ${validationData.property} is ${validationData.constraints[0]}`
     }
     })
-  firstname: string;
-
-  @IsString()
-  @IsNotEmpty({message: ()=>("'Lastname' field is empty!")})
-  @MinLength(3,{
-    message: (validationData: ValidationArguments) => {
-      return `The size of your ${validationData.property} ${validationData.value} is short, the minimum size of ${validationData.property} is ${validationData.constraints[0]}`
-    }
-    })
-  @MaxLength(20, { 
-    message: (validationData: ValidationArguments) => {
-      return `The size of your ${validationData.property} ${validationData.value} is long, the maximum size of ${validationData.property} is ${validationData.constraints[0]}`
-    }
-    })
-  lastname: string;
+  name: string;
 
   @IsString()
   @IsNotEmpty({message: ()=>("'CIN' field is empty!")})
@@ -50,4 +36,18 @@ export class AddCompteDto {
   @IsString()
   @IsNotEmpty({message: ()=>("'Tax Identification Number' field is empty!")})
   taxIdentificationNumber: string;
+
+  @IsString()
+  @IsNotEmpty({message: ()=>("'Password' field is empty!")})
+  @MinLength(8,{
+    message: (validationData: ValidationArguments) => {
+      return `The size of your ${validationData.property} ${validationData.value} is short, the minimum size of ${validationData.property} is ${validationData.constraints[0]}`
+    }
+    })
+  @MaxLength(20, { 
+    message: (validationData: ValidationArguments) => {
+      return `The size of your ${validationData.property} ${validationData.value} is long, the maximum size of ${validationData.property} is ${validationData.constraints[0]}`
+    }
+    })
+  password: string;  
 }

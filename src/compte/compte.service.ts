@@ -15,8 +15,8 @@ export class CompteService {
         return this.compteRepository.save(addCompteDto);
     }
 
-    async getCompte(id: string) {
-        const compte = await this.compteRepository.findOne({where:{id:id}});
+    async getCompte(email: string, password:string) {
+        const compte = await this.compteRepository.findOne({where:{email:email, password:password}});
         if (!compte) {throw new NotFoundException("Compte not found!");}
         return compte;
     }
