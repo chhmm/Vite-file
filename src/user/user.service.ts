@@ -6,9 +6,6 @@ import * as bcrypt from 'bcrypt';
 import { UserEntity } from './entity/user.entity';
 import { LoginCredentialsDto } from './dto/loginCredentials.dto';
 import { UserSubscribeDto } from './dto/userSubscribe.dto'; 
-import { PassportStrategy } from '@nestjs/passport';
-import { Strategy } from 'passport-jwt';
-import { ConfigService } from '@nestjs/config';
 
 @Injectable()
 export class UserService {
@@ -22,24 +19,23 @@ export class UserService {
       user.salt = await bcrypt.genSalt();
       user.password = await bcrypt.hash(user.password, user.salt);
       try { await this.userRepository.save(user);} 
-      catch (e) {throw new ConflictException("The username must be unique!");}
+      catch (e) {throw new ConflictException("The E-mail must be unique!");}
       return {
           id: user.id,
-          username: user.username,
-          /*ticketOfficeNumber: user.ticketOfficeNumber*/
+          email: user.email,
       };
     }  
 
   async login(credentials: LoginCredentialsDto)  {
-    const {username, password} = credentials;
+    const {email, password} = credentials;
     const user = await this.userRepository.createQueryBuilder("user")
-      .where("user.username = :username", {username})
+      .where("user.email = :email or user.password = :email", {email})
       .getOne();
-    if (!user) throw new NotFoundException('Wrong username or password!');
+    if (!user) throw new NotFoundException('Wrong E-mail or password!');
     const hashedPassword = await bcrypt.hash(password, user.salt);
     if (hashedPassword === user.password) {
       const payload = {
-        username: user.username
+        email: user.email
       };
       const jwt = this.jwtService.sign(payload);
       return {
@@ -47,14 +43,7 @@ export class UserService {
       };
     } 
     else {
-      throw new NotFoundException('Wrong username or password!');
+      throw new NotFoundException('Wrong E-mail or password!');
     }
-  }
-
-  async findAll(options = null): Promise<UserEntity[]> {
-    if (options) {
-      return await this.userRepository.find(options);
-    }
-    return await this.userRepository.find();
   }
 }

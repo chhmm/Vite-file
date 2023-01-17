@@ -1,4 +1,5 @@
-import { Controller, Body, Param, Get, Post, Patch, Delete } from '@nestjs/common';
+import { Controller, Body, Param, Get, Post, Patch, Delete, UseGuards } from '@nestjs/common';
+import { JwtAuthGuard } from 'src/user/guard/jwt-auth.guard';
 import { CompteService } from './compte.service';
 import { AddCompteDto } from './dto/addCompte.dto';
 import { UpdateCompteDto } from './dto/updateCompte.dto';
@@ -8,6 +9,7 @@ export class CompteController {
   constructor(private readonly compteService: CompteService) {}
 
   @Post()
+  //@UseGuards(JwtAuthGuard)
   addCompte(@Body() addCompteDto: AddCompteDto) {
     return this.compteService.addCompte(addCompteDto);
   }

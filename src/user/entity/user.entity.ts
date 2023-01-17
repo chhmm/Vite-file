@@ -1,13 +1,14 @@
 import { Entity, Column, PrimaryGeneratedColumn } from 'typeorm';
 import { Exclude } from 'class-transformer';
+import { TimestampEntity } from 'src/compte/entity/timestamp.entity';
 
 @Entity()
-export class UserEntity {
+export class UserEntity extends TimestampEntity {
   @PrimaryGeneratedColumn('uuid')
   id: string;
 
-  @Column()
-  username: string;
+  @Column({unique:true})
+  email: string;
 
   @Column()
   @Exclude()
@@ -16,7 +17,4 @@ export class UserEntity {
   @Column()
   @Exclude()
   salt: string;
-
-  /*@Column()
-  ticketOfficeNumber: number;*/
 }
