@@ -1,4 +1,5 @@
-import { Entity, PrimaryGeneratedColumn, Column, DeleteDateColumn } from 'typeorm';
+import { FileEntity } from '../../file/entities/file.entity';
+import { Entity, PrimaryGeneratedColumn, Column, DeleteDateColumn, OneToMany } from 'typeorm';
 import { TimestampEntity } from './timestamp.entity';
 
 @Entity()
@@ -29,4 +30,8 @@ export class CompteEntity extends TimestampEntity {
   
   @DeleteDateColumn()
   del : any;
+
+  @OneToMany(type=>FileEntity,
+    (files)=>files.admin,)
+    files:FileEntity[]
 }

@@ -1,6 +1,6 @@
 import { Entity, Column, PrimaryGeneratedColumn } from 'typeorm';
 import { Exclude } from 'class-transformer';
-import { TimestampEntity } from 'src/compte/entity/timestamp.entity';
+import { TimestampEntity } from '../../compte/entity/timestamp.entity';
 
 @Entity()
 export class UserEntity extends TimestampEntity {
